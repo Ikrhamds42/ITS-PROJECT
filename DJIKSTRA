@@ -1,0 +1,66 @@
+procedure TForm2.dijkstraClick(Sender: TObject); 
+var 
+a,b:integer; 
+st,fh:double; 
+begin 
+startDij.Caption:=timetostr(now); 
+st:=time; 
+awal:=(mulai.ItemIndex)+1; tujuan:=(akhir.ItemIndex)+1; 
+if (awal=0) or (tujuan=0) then 
+showmessage('harus diisi!!!') 
+else 
+begin 
+  dij.Cells[awal,1]:=inttostr(1); 
+  dij.Cells[awal,3]:=inttostr(awal); 
+  jarak:=99999999; 
+  if (awal<>0) and (tujuan<>0) then 
+    begin 
+      for b:=1 to 77 do 
+      begin 
+        if node.Cells[b,awal]<>'' then 
+           begin 
+dij.Cells[b,2]:=node.Cells[b,awal]; 
+dij.Cells[b,3]:=inttostr(awal); 
+           end; 
+       end; 
+       for b:=1 to 77 do 
+        begin 
+if dij.Cells[b,2]<>'' then 
+if dij.Cells[b,1]<>'' then 
+else 
+  if strtofloat(dij.Cells[b,2]) < jarak then 
+    jarak:=strtofloat(dij.Cells[b,2]); 
+       end; for b:=1 to 77 do
+for b:1 to 77 do
+
+begin 
+  if floattostr(jarak)=dij.Cells[b,2] then 
+      dij.Cells[b,1]:=inttostr(1); 
+end; 
+            for b:=1 to 77 do 
+begin 
+   if dij.Cells[b,2]=floattostr(jarak) then 
+       c:=b; 
+end; 
+                           nex; 
+           end; 
+         nextDij; 
+         linDij.ColWidths[0]:=35; 
+         linDij.Cells[0,0]:=' Jalur '; 
+         a:=0; 
+         for b:=77 downto 1 do 
+            if dij.Cells[b,4]<>'' then 
+begin 
+  linDij.Cells[(1+a),0]:=dij.Cells[b,4]; 
+  a:=a+1; 
+end; 
+          finishDij.Caption:=timetostr(now); 
+          fh:=time; 
+    end; 
+startdij.Caption:=timetostr(fh-st); 
+DijkstraStep.Enabled:=false; Next.Enabled:=false; 
+Dijkstra.Enabled:=false; 
+          end; 
+
+
+
